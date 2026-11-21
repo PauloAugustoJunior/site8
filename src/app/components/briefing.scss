@@ -1,0 +1,32 @@
+.briefing { background: var(--coral-light); }
+.briefing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 7vw, 7rem); align-items: start; }
+h2 { max-width: 16ch; }
+.briefing-intro > p { max-width: 40ch; font-size: 1rem; line-height: 1.8; }
+.local-note { display: flex; gap: .9rem; padding-top: 2rem; margin-top: 2.3rem; border-top: 1px solid #cfc0ba; }
+.local-note app-icon { margin-top: .15rem; }
+.local-note strong { font-size: .86rem; font-weight: 600; }
+.local-note p,.briefing-intro > .contact-note { font-size: .8rem; color: var(--muted); line-height: 1.75; }
+.contact-note { margin-top: 1.3rem; }
+.briefing-workspace { background: var(--white); border-radius: 16px; padding: clamp(1.3rem, 3.5vw, 2.5rem); }
+form { display: grid; gap: 1.4rem; }
+.field { display: grid; gap: .5rem; }
+label { font-size: .875rem; font-weight: 500; line-height: 1.6; }
+label span { font-size: .8125rem; color: var(--muted); font-weight: 400; }
+input,textarea,select { width: 100%; min-width: 0; background: var(--white); color: var(--ink); font: inherit; font-size: 1rem; line-height: 1.6; border: 1px solid #858987; border-radius: 7px; padding: .8rem .9rem; }
+input,select { min-height: 48px; }
+textarea { resize: vertical; }
+select { appearance: none; padding-right: 2.4rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%2327292b' stroke-width='1.5'/%3E%3C/svg%3E"); background-position: right 12px center; background-size: 16px; background-repeat: no-repeat; }
+::placeholder { color: #666b6d; opacity: 1; }
+[aria-invalid='true'] { border-color: var(--red); }
+.field-error { color: var(--red); font-size: .8125rem; margin: 0; line-height: 1.6; }
+.field-hint { color: var(--muted); font-size: .8125rem; margin: 0; }
+form .button { justify-self: start; }
+.briefing-result { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.6rem; }
+h3 { font-size: 1.3rem; margin: 0 0 .9rem; font-weight: 500; }
+.briefing-result label { display: block; color: var(--muted); margin-bottom: .6rem; }
+.briefing-result textarea { background: var(--paper); font-size: .8rem; }
+.result-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
+.result-actions .button { font-size: .77rem; padding: .8rem 1rem; }
+.feedback { margin-bottom: 0; font-size: .8rem; line-height: 1.65; color: var(--muted); }
+.feedback:empty { margin: 0; }
+@media (max-width: 760px) { .briefing-layout { grid-template-columns: 1fr; }.local-note { margin-top: 1.7rem; padding-top: 1.3rem; } }

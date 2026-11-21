@@ -1,0 +1,35 @@
+:host { display: block; }
+.hero { background: var(--coal); color: var(--white); overflow: hidden; }
+.hero-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 4vw, 4rem); padding-top: clamp(3rem, 6vw, 6.5rem); padding-bottom: 4.8rem; align-items: start; }
+h1 { font-weight: 500; font-size: clamp(2.8rem, 4.7vw, 4.5rem); line-height: 1.12; letter-spacing: -.04em; margin-bottom: 1.75rem; max-width: 16ch; }
+.hero-copy > p { color: var(--on-coal-muted); max-width: 44ch; font-size: 1rem; line-height: 1.8; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-block: 2.2rem 1.4rem; }
+.hero-secondary { font-size: .85rem; min-height: 44px; display: inline-flex; align-items: center; text-underline-offset: .4em; }
+.hero-secondary:hover { color: var(--coral); }
+.hero-copy > .hero-footnote { font-size: .75rem; line-height: 1.8; max-width: 45ch; margin-bottom: 0; }
+.flow-demo { margin: 0; padding: 1.7rem 0 0; }
+.flow-heading { display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; line-height: 1.6; font-weight: 500; margin: 0 0 2rem 1rem; }
+.flow-symbol { width: 41px; height: 41px; color: var(--coral); }
+.flow-steps { position: relative; }
+.flow-steps:before { content: ''; position: absolute; width: 1px; background: var(--coral); left: 31px; top: 30px; bottom: 30px; }
+.flow-step { position: relative; display: flex; align-items: center; gap: 1rem; padding: 1rem .9rem; border: 1px solid #616565; border-radius: 10px; background: var(--coal); margin-bottom: 1rem; min-height: 100px; }
+.flow-icon { width: 34px; height: 34px; display: grid; place-items: center; color: var(--coral); flex-shrink: 0; }
+.flow-icon app-icon { width: 22px; height: 22px; }
+.flow-label { display: block; font-size: .75rem; color: var(--on-coal-muted); margin-bottom: .35rem; }
+.flow-step strong { font-size: .875rem; font-weight: 500; display: block; }
+.flow-step p { font-size: .8125rem; line-height: 1.6; color: var(--on-coal-muted); margin: .3rem 0 0; }
+.flow-index { font-size: .65rem; color: var(--on-coal-muted); align-self: flex-start; margin-left: auto; padding-top: .1rem; }
+.step-automation { margin-left: 1.4rem; }
+.step-data { margin-left: 2.8rem; }
+.step-decision { margin-left: 4.2rem; border-color: var(--coral); background: #423530; }
+.step-decision .flow-icon { border-radius: 50%; background: var(--coral); color: var(--ink); }
+figcaption { font-size: .75rem; color: var(--on-coal-muted); line-height: 1.7; padding-left: 4.2rem; max-width: 53ch; margin-top: 1.2rem; }
+.hero-bottom { display: flex; align-items: center; gap: .5rem; padding-block: 1.6rem; border-top: 1px solid #515556; }
+.hero-bottom > span { color: var(--on-coal-muted); font-size: .8rem; }
+.hero-bottom p { margin: 0; font-size: .8rem; }
+.hero-bottom a { margin-left: auto; display: grid; place-items: center; width: 44px; height: 44px; }
+.scroll-marker { display: block; width: 11px; height: 21px; border: 1px solid var(--coral); border-radius: 7px; position: relative; }
+.scroll-marker:before { content: ''; height: 5px; width: 1px; background: var(--coral); top: 4px; left: 4px; position: absolute; }
+@media (max-width: 1000px) { h1 { font-size: clamp(2.6rem, 5vw, 3.6rem); }.hero-layout { gap: 2rem; }.flow-step { padding-inline: .65rem; gap: .5rem; }.flow-step strong { font-size: .875rem; }.flow-index { display: none; }.step-automation { margin-left: .7rem; }.step-data { margin-left: 1.4rem; }.step-decision { margin-left: 2.1rem; }figcaption { padding-left: 2.1rem; }.hero-actions { gap: .9rem; }.hero-bottom { flex-wrap: wrap; } }
+@media (max-width: 760px) { .hero-layout { grid-template-columns: 1fr; padding-top: 3rem; padding-bottom: 2.5rem; gap: 2rem; }h1 { font-size: clamp(2.5rem, 8.3vw, 4rem); max-width: 17ch; }.hero-copy > p { max-width: 47ch; }.flow-demo { width: min(100%, 490px); margin-inline: auto; }.flow-step strong { font-size: .875rem; }.hero-bottom { display: grid; gap: .4rem; grid-template-columns: 1fr auto; }.hero-bottom p { grid-row: 2; }.hero-bottom a { grid-column: 2; grid-row: 1 / 3; }.flow-heading { margin-left: 0; } }
+@media (max-width: 380px) { .flow-step { gap: .4rem; }.flow-icon { width: 24px; }.flow-step strong { font-size: .875rem; }.flow-step p { font-size: .8125rem; }.step-automation { margin-left: .4rem; }.step-data { margin-left: .8rem; }.step-decision { margin-left: 1.2rem; }figcaption { padding-left: 0; } }

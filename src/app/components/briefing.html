@@ -1,0 +1,31 @@
+<section id="briefing" class="section briefing" aria-labelledby="briefing-title">
+  <div class="container briefing-layout">
+    <div class="briefing-intro">
+      <h2 id="briefing-title">Seu próximo projeto<br>começa com uma<br>boa pergunta.</h2>
+      <p>O que você gostaria de fazer funcionar melhor no seu negócio?</p>
+      <p>Organize a resposta em um briefing para pedir um orçamento. Não é preciso saber a solução técnica.</p>
+      <div class="local-note"><app-icon name="compass" /><div><strong>Um documento seu, feito aqui.</strong><p>Os dados ficam nesta página durante o uso. Nada é enviado ou armazenado por este formulário. Evite incluir informações sensíveis.</p></div></div>
+      @if (contact.status === 'pending') {
+        <p class="contact-note">Os canais oficiais da Nexo estão em definição. Baixe ou copie seu briefing para compartilhar quando um canal estiver disponível.</p>
+      }
+    </div>
+    <div class="briefing-workspace">
+      <form #formElement (submit)="generate($event)" novalidate>
+        <div class="field"><label for="business">Seu negócio ou atividade <span>(obrigatório)</span></label><input id="business" type="text" [formField]="briefingForm.business" autocomplete="organization" placeholder="Ex.: uma loja, uma clínica, uma consultoria" [attr.aria-invalid]="attempted() && businessInvalid()" [attr.aria-describedby]="attempted() && businessInvalid() ? 'business-error' : null">
+          @if (attempted() && businessInvalid()) { <p id="business-error" class="field-error">Descreva seu negócio com pelo menos 2 caracteres.</p> }
+        </div>
+        <div class="field"><label for="service">Por onde você quer começar?</label><select id="service" [formField]="briefingForm.service">@for (service of services; track service.id) {<option [value]="service.id">{{ service.title }}</option>}<option value="unknown">Quero ajuda para definir</option></select></div>
+        <div class="field"><label for="need">O que precisa melhorar? <span>(obrigatório)</span></label><textarea id="need" rows="4" [formField]="briefingForm.need" placeholder="Conte o que acontece hoje e o que você gostaria de mudar." [attr.aria-invalid]="attempted() && needInvalid()" [attr.aria-describedby]="attempted() && needInvalid() ? 'need-error' : 'need-hint'"></textarea><p id="need-hint" class="field-hint">Descreva sua necessidade em pelo menos 20 caracteres.</p>
+          @if (attempted() && needInvalid()) { <p id="need-error" class="field-error">Conte um pouco mais sobre o objetivo: use ao menos 20 caracteres.</p> }
+        </div>
+        <div class="field"><label for="tools">Quais ferramentas você usa hoje? <span>(opcional)</span></label><input id="tools" type="text" [formField]="briefingForm.tools" placeholder="Ex.: planilhas, sistema de gestão, WhatsApp"></div>
+        <div class="field"><label for="timing">Existe um prazo em mente?</label><select id="timing" [formField]="briefingForm.timing"><option>Ainda vou definir</option><option>Tenho uma necessidade para este mês</option><option>Quero planejar os próximos meses</option><option>Estou explorando possibilidades</option></select></div>
+        <button class="button button-dark" type="submit">Gerar meu briefing <app-icon name="plus" /></button>
+      </form>
+      @if (generated()) {
+        <div class="briefing-result"><h3>Seu briefing está pronto.</h3><label for="briefing-preview">Revise o documento antes de compartilhar</label><textarea id="briefing-preview" readonly rows="11" [value]="generated()"></textarea><div class="result-actions"><button type="button" class="button button-dark" (click)="download()"><app-icon name="download" /> Baixar .txt</button><button type="button" class="button button-outline" (click)="copy()"><app-icon name="copy" /> Copiar texto</button></div></div>
+      }
+      <p class="feedback" role="status" aria-live="polite">{{ feedback() }}</p>
+    </div>
+  </div>
+</section>
